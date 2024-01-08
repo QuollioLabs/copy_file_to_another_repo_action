@@ -44,7 +44,7 @@ else
   echo "rsync mode detected"
   if [ -z "$INPUT_EXCLUDE_FILES" ]
   then
-    rsync -avrh --exclude "$INPUT_EXCLUDE_FILES" "$INPUT_SOURCE_FILE" "$DEST_COPY"
+    rsync -avrh --exclude $INPUT_EXCLUDE_FILES "$INPUT_SOURCE_FILE" "$DEST_COPY"
   else
     rsync -avrh "$INPUT_SOURCE_FILE" "$DEST_COPY"
   fi
