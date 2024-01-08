@@ -42,10 +42,11 @@ then
   cp -R "$INPUT_SOURCE_FILE" "$DEST_COPY"
 else
   echo "rsync mode detected"
-  if [ -z "$INPUT_EXCLUDE_FILES" ]
-    rsync -avrh --exclude "$INPUT_EXCLUDE_FILES" "$INPUT_SOURCE_FILE" "$DEST_COPY"
-  else
+  if [ -z "$INPUT_RSYNC_OPTION" ]
+  then
     rsync -avrh "$INPUT_SOURCE_FILE" "$DEST_COPY"
+  else
+    rsync -avrh "$INPUT_RSYNC_OPTION" "$INPUT_SOURCE_FILE" "$DEST_COPY"
   fi
 fi
 
